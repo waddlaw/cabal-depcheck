@@ -1,6 +1,0 @@
-cabal-version: 2.4
-name: test1
-version: 0.1.0.0
-
-library
-  build-depends: base >=4.7 && <4.8
