@@ -21,8 +21,6 @@ const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-inst
 // const cabal_install_windows_url = '';
 // const cabal_install_macos_url = '';
 
-// https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-unknown-linux.tar.xz
-
 async function run() {
   try {
 
@@ -60,7 +58,7 @@ async function run() {
     console.log(cabal_install_cached_path)
 
     // Set mode
-
+    exec.exec('ls', [cabal_install_cached_dir]);
     exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
 
     // Run cabal outdated
