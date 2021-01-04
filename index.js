@@ -31,33 +31,29 @@ async function run() {
 
     // Cache cabal_install executable
 
-    console.log(cabal_install_path)
-
     const cabal_install_cached_dir = await tool_cache.cacheFile(
         cabal_install_path,
         'cabal',
         'cabal',
         cabal_install_version
     );
-
-    console.log(cabal_install_cached_dir)
-
     const cabal_install_cached_path = path.join(cabal_install_cached_dir, 'cabal');
 
-    console.log(cabal_install_cached_path)
-
     // Set mode
-    exec.exec('ls', [cabal_install_cached_dir]);
-    exec.exec('ls', [cabal_install_cached_path]);
     exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
 
     // Run cabal outdated
 
     await exec.exec(cabal_install_cached_path, ['--version']);
+
+    exec.exec('ls', [cabal_install_cached_path]);
+
     await exec.exec(
         cabal_install_cached_path,
         ['outdated']
     );
+
+    exec.exec('ls', [cabal_install_cached_path]);
 
   } catch (error) {
     core.setFailed(`Action failed with error ${error}`);
