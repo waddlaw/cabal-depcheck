@@ -1,5 +1,5 @@
-name: 'cabal-depcheck'
-description: 'TODO'
+name: 'cabal-outdated-action'
+description: 'Just run the cabal outdated command.'
 runs:
   using: 'node12'
   main: 'dist/index.js'

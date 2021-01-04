@@ -1,7 +1,7 @@
 {
-  "name": "cabal-depcheck",
+  "name": "cabal-outdated-action",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Just run the cabal outdated command.",
   "main": "index.js",
   "scripts": {
     "prepare": "ncc build index.js -o dist",
