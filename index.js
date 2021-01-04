@@ -7,7 +7,7 @@ const exec = require('@actions/exec');
 
 const cabal_install_version = '3.2.0.0';
 const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-install-' + cabal_install_version + '/cabal-install-' + cabal_install_version + '-x86_64-unknown-linux.tar.xz';
-// const cabal_install_windows_url = '';
+// const cabal_install_windows_url = ''; // TODO
 const cabal_install_macos_url = 'https://downloads.haskell.org/~cabal/cabal-install-' + cabal_install_version + '/cabal-install-' + cabal_install_version + '-x86_64-apple-darwin17.7.0.tar.xz';
 
 async function run() {
