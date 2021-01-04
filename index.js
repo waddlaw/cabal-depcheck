@@ -29,16 +29,18 @@ async function run() {
         cabal_install_path = await tool_cache.downloadTool(cabal_install_linux_url);
     // }
 
+    const cabal_install_extracted_path = await tc.extractTar(cabal_install_path, '/home/runner/work/_temp/cabal/');
+
     // decompress xz file
 
-    await exec.exec('tar', ['xvf', cabal_install_path]);
-    await exec.exec('ls', ['-l', '/home/runner/work/_temp/']);
+    // await exec.exec('tar', ['xvf', cabal_install_path]);
+    await exec.exec('ls', cabal_install_extracted_path);
 
 
     // Cache cabal_install executable
 
     const cabal_install_cached_dir = await tool_cache.cacheFile(
-        cabal_install_path,
+        cabal_install_extracted_path,
         'cabal',
         'cabal',
         cabal_install_version
