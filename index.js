@@ -10,6 +10,8 @@ const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-inst
 // const cabal_install_windows_url = '';
 // const cabal_install_macos_url = '';
 
+console.log('test1');
+
 async function run() {
   try {
 
@@ -36,6 +38,8 @@ async function run() {
         cabal_install_version
     );
     const cabal_install_cached_path = path.join(cabal_install_cached_dir, 'cabal');
+
+    console.log('test2');
 
     // Set mode
 
