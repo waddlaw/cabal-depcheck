@@ -7,9 +7,12 @@ Just run the cabal outdated command.
 Save the following contents as `.github/workflows/outdated.yml`.
 
 ```yaml
-name: 'nightly dependencies check'
+name: 'dependencies check'
 
 on:
+  push:
+    branches: [main]
+  pull_request:
   schedule:
     - cron: "00 15 * * *"
 
