@@ -32,7 +32,7 @@ async function run() {
 
     // decompress xz file
     await exec.exec('mkdir', cabal_install_extracted_dir);
-    await exec.exec('tar', ['xvf', cabal_install_path, '-C', cabal_install_extracted_dir]);
+    await exec.exec('tar', ['xf', cabal_install_path, '-C', cabal_install_extracted_dir]);
 
     // Cache cabal_install executable
     const cabal_install_cached_dir = await tool_cache.cacheFile(
@@ -48,10 +48,8 @@ async function run() {
 
     // Run cabal outdated
     await exec.exec(cabal_install_cached_path, ['--version']);
-    await exec.exec(
-        cabal_install_cached_path,
-        ['outdated']
-    );
+    await exec.exec(cabal_install_cached_path, 'update');
+    await exec.exec(cabal_install_cached_path, 'outdated');
 
   } catch (error) {
     core.setFailed(`Action failed with error ${error}`);
