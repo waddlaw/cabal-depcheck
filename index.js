@@ -48,6 +48,7 @@ async function run() {
 
     // Set mode
     exec.exec('ls', [cabal_install_cached_dir]);
+    exec.exec('ls', [cabal_install_cached_path]);
     exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
 
     // Run cabal outdated
