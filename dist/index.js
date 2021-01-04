@@ -56,10 +56,10 @@ async function run() {
     // Run cabal outdated
 
     // await exec.exec(cabal_install_cached_path, ['--version']);
-    await exec.exec(
-        cabal_install_cached_path,
-        ['outdated']
-    );
+    // await exec.exec(
+    //     cabal_install_cached_path,
+    //     ['outdated']
+    // );
 
   } catch (error) {
     core.setFailed(`Action failed with error ${error}`);
