@@ -1,0 +1,5 @@
+name: 'cabal-depcheck'
+description: 'TODO'
+runs:
+  using: 'node12'
+  main: 'index.js'
