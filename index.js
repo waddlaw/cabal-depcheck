@@ -35,7 +35,7 @@ async function run() {
     await exec.exec('mkdir', cabal_install_extracted_dir);
     await exec.exec('tar', ['xf', cabal_install_path, '-C', cabal_install_extracted_dir]);
 
-    const cabal_install_extracted_path = cabal_install_extracted_dir + 'cabal';
+    const cabal_install_extracted_path = path.join(cabal_install_extracted_dir, 'cabal');
 
     // Cache cabal_install executable
     const cabal_install_cached_dir = await tool_cache.cacheFile(
