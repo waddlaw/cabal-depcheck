@@ -51,20 +51,16 @@ async function run() {
     const cabal_install_cached_path = path__WEBPACK_IMPORTED_MODULE_0__.join(cabal_install_cached_dir, 'cabal');
 
     // Set mode
-    exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
+    await exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
 
     // Run cabal outdated
 
     await exec.exec(cabal_install_cached_path, ['--version']);
 
-    exec.exec('ls', [cabal_install_cached_path]);
-
     await exec.exec(
         cabal_install_cached_path,
         ['outdated']
     );
-
-    exec.exec('ls', [cabal_install_cached_path]);
 
   } catch (error) {
     core.setFailed(`Action failed with error ${error}`);
