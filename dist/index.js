@@ -61,7 +61,7 @@ async function run() {
     );
 
   } catch (error) {
-    core.setFailed("cabal outdated error");
+    core.setFailed(`Action failed with error ${err}`);
   }
 }
 
