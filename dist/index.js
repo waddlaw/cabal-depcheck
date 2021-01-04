@@ -21,7 +21,7 @@ const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-inst
 // const cabal_install_windows_url = '';
 // const cabal_install_macos_url = '';
 
-const cabal_install_extracted_path = '/home/runner/work/_temp/cabal/';
+const cabal_install_extracted_dir = '/home/runner/work/_temp/cabal/';
 
 async function run() {
   try {
@@ -42,21 +42,17 @@ async function run() {
         cabal_install_path = await tool_cache.downloadTool(cabal_install_linux_url);
     // }
 
-
-    // let inst_dest = path.join(tmp_dir, 'base.exe');
-    // const cabal_install_extracted_path = await tool_cache.extractTar(cabal_install_path, '/home/runner/work/_temp/cabal/');
-
     // decompress xz file
 
-    await exec.exec('mkdir', cabal_install_extracted_path);
-    await exec.exec('tar', ['xvf', cabal_install_path, '-C', cabal_install_extracted_path]);
-    // await exec.exec('ls', cabal_install_extracted_path);
+    await exec.exec('mkdir', cabal_install_extracted_dir);
+    await exec.exec('tar', ['xvf', cabal_install_path, '-C', cabal_install_extracted_dir]);
+    // await exec.exec('ls', cabal_install_extracted_dir);
 
 
     // Cache cabal_install executable
 
     const cabal_install_cached_dir = await tool_cache.cacheFile(
-        cabal_install_extracted_path,
+        cabal_install_extracted_dir+'cabal',
         'cabal',
         'cabal',
         cabal_install_version
