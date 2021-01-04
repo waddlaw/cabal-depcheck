@@ -34,19 +34,19 @@ async function run() {
         // cabal_install_path = await tool_cache.downloadTool(cabal_install_windows_url);
     // }
     if (process.platform === 'darwin') {
+        cabal_install_extracted_dir = '/Users/runner/work/_temp/cabal/';
         cabal_install_path = await tool_cache.downloadTool(cabal_install_macos_url);
     }
     else {
+        cabal_install_extracted_dir = '/home/runner/work/_temp/cabal/';
         cabal_install_path = await tool_cache.downloadTool(cabal_install_linux_url);
     }
-
-    cabal_install_extracted_dir = path__WEBPACK_IMPORTED_MODULE_0__.join(cabal_install_path, 'extracted');
 
     // decompress xz file
     await exec.exec('mkdir', cabal_install_extracted_dir);
     await exec.exec('tar', ['xf', cabal_install_path, '-C', cabal_install_extracted_dir]);
 
-    const cabal_install_extracted_path = path__WEBPACK_IMPORTED_MODULE_0__.join(cabal_install_extracted_dir, 'cabal');
+    const cabal_install_extracted_path = cabal_install_extracted_dir + 'cabal';
 
     // Cache cabal_install executable
     const cabal_install_cached_dir = await tool_cache.cacheFile(
