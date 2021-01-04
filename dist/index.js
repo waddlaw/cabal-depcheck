@@ -21,12 +21,16 @@ const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-inst
 // const cabal_install_windows_url = '';
 // const cabal_install_macos_url = '';
 
+// https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-unknown-linux.tar.xz
+
 async function run() {
   try {
 
     // Download cabal-install executable
 
     var cabal_install_path;
+
+    console.log(cabal_install_linux_url);
 
     // if (process.platform === 'win32') {
         // cabal_install_path = await tool_cache.downloadTool(cabal_install_windows_url);
