@@ -30,6 +30,8 @@ async function run() {
         cabal_install_path = await tool_cache.downloadTool(cabal_install_linux_url);
     }
 
+    console.log(cabal_install_path);
+
     // decompress xz file
     await exec.exec('mkdir', cabal_install_extracted_dir);
     await exec.exec('tar', ['xf', cabal_install_path, '-C', cabal_install_extracted_dir]);
