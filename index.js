@@ -32,6 +32,8 @@ async function run() {
     // decompress xz file
 
     await exec.exec('tar', ['xvf', cabal_install_path]);
+    await exec.exec('ls', ['-l', cabal_install_path]);
+
 
     // Cache cabal_install executable
 
@@ -48,7 +50,6 @@ async function run() {
 
     // Run cabal outdated
 
-    await exec.exec('ls', ['-l', cabal_install_cached_path]);
     await exec.exec('file', [cabal_install_cached_path]);
     await exec.exec('ldd', [cabal_install_cached_path]);
 
