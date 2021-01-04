@@ -35,6 +35,7 @@ async function run() {
 
     // decompress xz file
 
+    await exec.exec('mkdir', '/home/runner/work/_temp/cabal/');
     await exec.exec('tar', ['xvf', cabal_install_path, '-C', '/home/runner/work/_temp/cabal/']);
     await exec.exec('ls', '/home/runner/work/_temp/cabal/');
 
