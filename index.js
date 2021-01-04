@@ -29,7 +29,7 @@ async function run() {
         cabal_install_path = await tool_cache.downloadTool(cabal_install_linux_url);
     // }
 
-    const cabal_install_extracted_path = await tc.extractTar(cabal_install_path, '/home/runner/work/_temp/cabal/');
+    const cabal_install_extracted_path = await tool_cache.extractTar(cabal_install_path, '/home/runner/work/_temp/cabal/');
 
     // decompress xz file
 
