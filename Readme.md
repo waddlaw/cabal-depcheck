@@ -2,6 +2,10 @@
 
 Just run the cabal outdated command.
 
+## Usage
+
+Save the following contents as `.github/workflows/outdated.yml`.
+
 ```yaml
 name: 'nightly dependencies check'
 
@@ -10,8 +14,9 @@ on:
     - cron: "00 15 * * *"
 
 jobs:
-  deps-check:
+  outdated:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: waddlaw/cabal-outdated-action@main
 ```
