@@ -17,7 +17,7 @@ const tool_cache = __webpack_require__(784);
 const exec = __webpack_require__(514);
 
 const cabal_install_version = '3.2.0.0';
-const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-install-' + cabal_install_version + '/cabal-install-' + cabal_install_version + ' -x86_64-unknown-linux.tar.xz';
+const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-install-' + cabal_install_version + '/cabal-install-' + cabal_install_version + '-x86_64-unknown-linux.tar.xz';
 // const cabal_install_windows_url = '';
 // const cabal_install_macos_url = '';
 
