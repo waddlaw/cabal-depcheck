@@ -19,7 +19,7 @@ async function run() {
 
     var cabal_install_path;
 
-    console.log(cabal_install_linux_url);
+    console.log(`download url: ${cabal_install_linux_url}`);
 
     // if (process.platform === 'win32') {
         // cabal_install_path = await tool_cache.downloadTool(cabal_install_windows_url);
@@ -33,12 +33,17 @@ async function run() {
 
     // Cache cabal_install executable
 
+    console.log(cabal_install_path)
+
     const cabal_install_cached_dir = await tool_cache.cacheFile(
         cabal_install_path,
         'cabal',
         'cabal',
         cabal_install_version
     );
+
+    console.log(cabal_install_cached_dir)
+
     const cabal_install_cached_path = path.join(cabal_install_cached_dir, 'cabal');
 
     // Set mode
