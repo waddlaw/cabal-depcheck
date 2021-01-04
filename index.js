@@ -31,7 +31,7 @@ async function run() {
 
     // decompress xz file
 
-    await exec.exec('tar', ['xvf', cabal_install_cached_path]);
+    await exec.exec('tar', ['xvf', cabal_install_path]);
 
     // Cache cabal_install executable
 
