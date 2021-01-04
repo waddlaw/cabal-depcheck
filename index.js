@@ -50,7 +50,7 @@ async function run() {
     );
 
   } catch (error) {
-    core.setFailed(`Action failed with error ${err}`);
+    core.setFailed(`Action failed with error ${error}`);
   }
 }
 
