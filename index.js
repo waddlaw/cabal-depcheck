@@ -10,7 +10,7 @@ const cabal_install_linux_url = 'https://downloads.haskell.org/~cabal/cabal-inst
 // const cabal_install_windows_url = '';
 const cabal_install_macos_url = 'https://downloads.haskell.org/~cabal/cabal-install-' + cabal_install_version + '/cabal-install-' + cabal_install_version + '-x86_64-apple-darwin17.7.0.tar.xz';
 
-const cabal_install_extracted_dir = '/home/runner/work/_temp/cabal/';
+const cabal_install_extracted_dir = '~/work/_temp/cabal/';
 
 async function run() {
   try {
@@ -29,8 +29,6 @@ async function run() {
     else {
         cabal_install_path = await tool_cache.downloadTool(cabal_install_linux_url);
     }
-
-    console.log(cabal_install_path);
 
     // decompress xz file
     await exec.exec('mkdir', cabal_install_extracted_dir);
