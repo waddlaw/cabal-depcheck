@@ -57,6 +57,8 @@ async function run() {
 
     const cabal_install_cached_path = path__WEBPACK_IMPORTED_MODULE_0__.join(cabal_install_cached_dir, 'cabal');
 
+    console.log(cabal_install_cached_path)
+
     // Set mode
 
     exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
