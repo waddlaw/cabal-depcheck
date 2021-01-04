@@ -27,7 +27,6 @@ async function run() {
   try {
 
     // Download cabal-install executable
-
     var cabal_install_path;
 
     console.log(`download url: ${cabal_install_linux_url}`);
@@ -43,14 +42,10 @@ async function run() {
     // }
 
     // decompress xz file
-
     await exec.exec('mkdir', cabal_install_extracted_dir);
     await exec.exec('tar', ['xvf', cabal_install_path, '-C', cabal_install_extracted_dir]);
-    // await exec.exec('ls', cabal_install_extracted_dir);
-
 
     // Cache cabal_install executable
-
     const cabal_install_cached_dir = await tool_cache.cacheFile(
         cabal_install_extracted_dir+'cabal',
         'cabal',
@@ -63,15 +58,11 @@ async function run() {
     await exec.exec('chmod', ['+x', cabal_install_cached_path], {silent: true});
 
     // Run cabal outdated
-
-    await exec.exec('file', [cabal_install_cached_path]);
-    await exec.exec('ldd', [cabal_install_cached_path]);
-
     await exec.exec(cabal_install_cached_path, ['--version']);
-    // await exec.exec(
-    //     cabal_install_cached_path,
-    //     ['outdated']
-    // );
+    await exec.exec(
+        cabal_install_cached_path,
+        ['outdated']
+    );
 
   } catch (error) {
     core.setFailed(`Action failed with error ${error}`);
